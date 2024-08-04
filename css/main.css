@@ -18,6 +18,11 @@ div.main #chat-form .text-area::part(base){
     height: 20vh;
 }
 
+div.main #chat-form #guidence.text-area::part(base){
+    background-color: #8d440011;
+    border: none;
+}
+
 div.main #chat-form #guidence {
     font-weight: 700;
 }
