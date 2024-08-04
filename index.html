@@ -22,10 +22,11 @@
                 <sl-textarea class="text-area" id="given_anwser" placeholder="请输入我的回复" required></sl-textarea>
             </div>
             <div class="guidence">
-                <sl-textarea class="text-area" id="guidence" resize="auto" placeholder="输入后查看AI提供的建议" readonly disabled></sl-textarea>
+                <sl-textarea class="text-area" id="guidence" resize="auto" placeholder="输入后查看AI提供的建议" readonly></sl-textarea>
             </div>
             <div class="submit-btn">
-                <sl-button type="submit" variant="warning">提交</sl-button>
+                <sl-button id="chat-submit-btn" type="submit" variant="warning">提交</sl-button>
+                <sl-progress-bar id="chat-submit-progress" style="display:none" indeterminate></sl-progress-bar>
             </div>
         </form>
     </div>
@@ -50,11 +51,16 @@
         let q_partner = document.getElementById('q_partner').value;
         let given_anwser = document.getElementById('given_anwser').value;
         let guidence_ele = document.getElementById('guidence')
+        let submit_btn = document.getElementById('chat-submit-btn')
+        let submit_progress = document.getElementById('chat-submit-progress')
         if (q_partner && given_anwser) {
+            submit_progress.setAttribute('style', 'display:block;');
+            submit_btn.setAttribute('style', 'display:none;');
             chatguideApiGetGuidence(q_partner, given_anwser)
             .then( res => {
-                console.log(res)
                 guidence_ele.value = res.result
+                submit_progress.setAttribute('style', 'display:none;');
+                submit_btn.setAttribute('style', 'display:inline-block;');
             })
         }
     });
