@@ -1,0 +1,32 @@
+div.main #chat-title {
+    text-align: center;
+    font-size: 30px;
+    font-family: poppins;
+    font-weight: 700;
+    margin: 8vh 0 0 0;
+}
+
+div.main #chat-form {
+    margin:5%
+}
+
+div.main #chat-form div {
+    margin: 2% 5% 2% 5%;
+}
+
+div.main #chat-form .text-area::part(base){
+    height: 20vh;
+}
+
+div.main #chat-form #guidence {
+    font-weight: 700;
+}
+
+
+div.main #chat-form .submit-btn {
+    text-align: center;
+}
+
+div.main #chat-form .submit-btn sl-button {
+    width: 30%;
+}
