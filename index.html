@@ -22,7 +22,8 @@
                 <sl-textarea class="text-area" id="given_anwser" placeholder="请输入我的回复" required></sl-textarea>
             </div>
             <div class="guidence">
-                <sl-textarea class="text-area" id="guidence" resize="auto" placeholder="输入后查看AI提供的建议" readonly></sl-textarea>
+                <span class="text-area" id="guidence" resize="auto" placeholder="输入后查看AI提供的建议"></span>
+                <!-- <sl-textarea class="text-area" id="guidence" resize="auto" placeholder="输入后查看AI提供的建议" readonly></sl-textarea> -->
             </div>
             <div class="submit-btn">
                 <sl-button id="chat-submit-btn" type="submit" variant="warning">提交</sl-button>
@@ -58,7 +59,8 @@
             submit_btn.setAttribute('style', 'display:none;');
             chatguideApiGetGuidence(q_partner, given_anwser)
             .then( res => {
-                guidence_ele.value = res.result
+                guidence_ele.innerHTML = res.result
+                // guidence_ele.value = res.result
                 submit_progress.setAttribute('style', 'display:none;');
                 submit_btn.setAttribute('style', 'display:inline-block;');
             })
